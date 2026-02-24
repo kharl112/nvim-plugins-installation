@@ -1,9 +1,17 @@
 #!/bin/bash
 
 #install nvim
-add-apt-repository ppa:neovim-ppa/unstable
+sudo apt install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip curl doxygen
+cd /tmp
+git clone https://github.com/neovim/neovim.git
+cd neovim
+make CMAKE_BUILD_TYPE=Release
+sudo make install
+
+cd -
+
 sudo apt-get update
-sudo apt-get install neovim tmux -y
+sudo apt-get install tmux -y
 
 set -ex
 curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
