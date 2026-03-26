@@ -22,7 +22,7 @@ sudo apt autoremove -y
 # Check if Ollama is installed
 if ! command -v ollama >/dev/null 2>&1; then
   read -p "Ollama not found. Install it? (y/n): " confirm
-  if [ "$confirm" != "y" ]; then
+  if [ "$confirm" == "y" ]; then
      curl -fsSL https://ollama.com/install.sh | sh
      reset 
      deepcoder:1.5b
